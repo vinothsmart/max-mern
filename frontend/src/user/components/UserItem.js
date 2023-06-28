@@ -6,7 +6,7 @@ const UserItem = ({ id, name, image, places }) => {
     <li key={id} className="user-item">
       <div className="user-item__content">
         <div className="user-item__image">
-          <img src={image} alt="user" />
+          <img src={image} alt={name} />
         </div>
         <div className="user-item__info">
           <h2>{name}</h2>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import UserItem from './UserItem';
 import './UserList.css';
 
@@ -12,12 +12,12 @@ const UserList = ({ items }) => {
   }
 
   return (
-    <Fragment>
+    <div className="users-list">
       {items.map((user) => (
         <UserItem key={user.id} {...user} />
       ))}
       ;
-    </Fragment>
+    </div>
   );
 };
 
