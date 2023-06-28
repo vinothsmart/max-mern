@@ -1,4 +1,5 @@
 import React from 'react';
+import Avatar from '../../shared/components/UIElements/Avatar';
 import './UserItem.css';
 
 const UserItem = ({ id, name, image, places }) => {
@@ -6,12 +7,12 @@ const UserItem = ({ id, name, image, places }) => {
     <li key={id} className="user-item">
       <div className="user-item__content">
         <div className="user-item__image">
-          <img src={image} alt={name} />
+          <Avatar image={image} alt={name} />
         </div>
         <div className="user-item__info">
           <h2>{name}</h2>
           <h3>
-            {places} {places.lenght === 1 ? 'Place' : 'Places'}
+            {places} {places.length === 1 ? 'Place' : 'Places'}
           </h3>
         </div>
       </div>
