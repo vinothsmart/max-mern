@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 // import Header from "./components/Header/Header";
 // import NewProduct from "./components/Products/NewProduct";
 // import ProductList from "./components/Products/ProductList";
 import './App.css';
-import GoalList from './components/GoalList';
+import GoalList from './components/GoalList/GoalList';
+import NewGoal from './components/NewGoal/NewGoal';
 
 function App() {
   // const [loadedProducts, setLoadedProducts] = useState([]);
@@ -66,6 +67,10 @@ function App() {
     { id: 'cg3', text: 'Help other students in the Course Q&A' },
   ]);
 
+  const addGoal = useCallback((goal) => {
+    setCourseGoals((preVal) => [...preVal, goal]);
+  }, []);
+
   return (
     // <React.Fragment>
     //   {/* <Header />
@@ -77,6 +82,7 @@ function App() {
     // </React.Fragment>
     <div className="course-goals">
       <h2> Course Goals</h2>
+      <NewGoal onAddGoal={addGoal} />
       <GoalList goals={courseGoals} />
     </div>
   );
