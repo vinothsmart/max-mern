@@ -16,7 +16,6 @@ const UserList = ({ items }) => {
       {items.map((user) => (
         <UserItem key={user.id} {...user} />
       ))}
-      ;
     </div>
   );
 };
