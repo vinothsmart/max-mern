@@ -4,10 +4,10 @@ import {
   Route,
   RouterProvider,
   Navigate,
-} from 'react-router-dom';
-import MainNavigation from './places/components/Navigation/MainNavigation';
-import NewPlace from './places/pages/NewPlace';
-import Users from './user/pages/Users';
+} from "react-router-dom";
+import NewPlace from "./places/pages/NewPlace";
+import Users from "./user/pages/Users";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 // create HOC for MainNavigation
 const withMainNavigation = (Component) => (props) =>
