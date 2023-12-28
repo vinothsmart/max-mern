@@ -1,3 +1,4 @@
+import { memo, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import MainHeader from "./MainHeader";
 import "./MainNavigation.css";
@@ -5,15 +6,27 @@ import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 
 const MainNavigation = () => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  const openDrawer = useCallback(() => {
+    setDrawerIsOpen(true);
+  }, []);
+
+  const closeDrawer = useCallback(() => {
+    setDrawerIsOpen(false);
+  }, []);
+
   return (
     <>
-      <SideDrawer>
-        <nav className="main-navigation__drawer-nav">
-          <NavLinks />
-        </nav>
-      </SideDrawer>
+      {drawerIsOpen && (
+        <SideDrawer>
+          <nav className="main-navigation__drawer-nav">
+            <NavLinks />
+          </nav>
+        </SideDrawer>
+      )}
       <MainHeader>
-        <button className="main-navigation__menu-btn">
+        <button className="main-navigation__menu-btn" onClick={openDrawer}>
           <span />
           <span />
           <span />
@@ -29,4 +42,4 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default memo(MainNavigation);
